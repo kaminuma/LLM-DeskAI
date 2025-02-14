@@ -1,0 +1,15 @@
+# モデルファイル（サイズが大きすぎるので除外）
+models/
+
+# SQLiteデータ（ユーザーの個人データ）
+data/chat_logs.db
+
+# セーブデータ（学習データのバックアップ）
+saves/
+
+# Python環境関連
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
