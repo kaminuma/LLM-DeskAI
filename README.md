@@ -96,3 +96,37 @@ MODEL_PATH = "models/RakutenAI-2.0-mini-instruct"  # モデルディレクトリ
 DB_PATH = "data/chat_logs.db"                     # SQLiteデータベースのパス
 SAVE_PATH = "saves/learning_data.json"            # 学習データのエクスポート先
 ```
+
+## 💻 動作環境・推奨スペック
+
+LLM-DeskAI は **ローカル環境で LLM を実行する** ため、一定の計算リソースが必要です。  
+ただし、**「RakutenAI-2.0-mini-instruct」** を使用する場合は、比較的軽量な環境でも動作可能です。  
+
+---
+
+### ✅ **最低動作環境（エントリーレベル）**
+- **OS**: Windows 10 / 11, macOS, Linux  
+- **CPU**: **Intel Core i5-6xxx / Ryzen 5 2xxx 以上**  
+- **RAM**: **16GB 以上（最低 12GB で動作可能だが非推奨）**  
+- **GPU**: **VRAM 4GB 以上**（例: GTX 1650, RTX 3050 など）  
+- **ストレージ**: 10GB 以上の空き容量（モデルファイル含む）  
+
+---
+
+### 🚀 **推奨環境（快適に動作）**
+- **CPU**: **Intel Core i7-9xxx / Ryzen 7 3xxx 以上**  
+- **RAM**: **24GB 以上**  
+- **GPU**: **VRAM 6GB 以上**（例: RTX 2060 SUPER, RTX 3060 12GB, RTX 4060 など）  
+- **ストレージ**: **NVMe SSD 20GB 以上の空き容量**  
+
+---
+
+### ⚠️ **注意事項**
+- **VRAM 4GB でも動作可能ですが、VRAM 6GB 以上の GPU を推奨**（RTX 2060 SUPER クラス）  
+- **CPU だけでも実行は可能だが、非常に遅くなるため非推奨**  
+- **Windows 環境では NVIDIA CUDA（`torch.cuda.is_available()` が `True`）での動作を推奨**  
+- **Mac は `mps`、Linux は `ROCm` での動作が可能（ただし速度は低下）**  
+
+---
+
+💡 **このスペックを README に反映し、エントリーレベルの PC でも動作可能であることを明記しましょう！**
