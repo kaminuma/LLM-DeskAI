@@ -1,0 +1,8 @@
+torch
+transformers>=4.37.0
+tokenizers>=0.13.3
+PyQt6
+sentencepiece
+accelerate
+bitsandbytes>=0.42.0
+
