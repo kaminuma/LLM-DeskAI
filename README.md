@@ -127,6 +127,3 @@ LLM-DeskAI は **ローカル環境で LLM を実行する** ため、一定の�
 - **Windows 環境では NVIDIA CUDA（`torch.cuda.is_available()` が `True`）での動作を推奨**  
 - **Mac は `mps`、Linux は `ROCm` での動作が可能（ただし速度は低下）**  
 
----
-
-💡 **このスペックを README に反映し、エントリーレベルの PC でも動作可能であることを明記しましょう！**
