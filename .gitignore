@@ -7,6 +7,9 @@ data/chat_logs.db
 # セーブデータ（学習データのバックアップ）
 saves/
 
+# 学習済みLoRAモデルのみ除外
+training/lora_model/
+
 # Python環境関連
 __pycache__/
 *.pyc

@@ -1,9 +1,10 @@
 print("✅ chat.py 読み込み開始")
 
 from transformers import AutoModelForCausalLM, AutoTokenizer
+from peft import PeftModel  #LoRA適用のため追加
 import torch
 from database import get_custom_response, save_chat
-from config import MODEL_PATH
+from config import MODEL_PATH, LORA_PATH
 from accelerate import infer_auto_device_map, dispatch_model
 
 print("✅ transformers, torch, config のインポート完了")
@@ -25,7 +26,8 @@ if tokenizer.pad_token_id is None:
 print("✅ モデルロード開始...")
 max_memory = {0: "5GiB", "cpu": "10GiB"}  # VRAM の使用を制限
 
-model = AutoModelForCausalLM.from_pretrained(
+# **1. ベースモデルをロード**
+base_model = AutoModelForCausalLM.from_pretrained(
     MODEL_PATH, 
     torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
     device_map="auto",
@@ -33,7 +35,11 @@ model = AutoModelForCausalLM.from_pretrained(
     max_memory=max_memory,
     local_files_only=True
 )
-print("✅ モデルロード完了")
+
+# **2. LoRA モデルを適用**
+print("✅ LoRAモデルを適用...")
+model = PeftModel.from_pretrained(base_model, LORA_PATH)  # LoRAを適用
+print("✅ LoRAモデル適用完了")
 
 # `device_map` を推論
 print("✅ device_map 推論開始")
